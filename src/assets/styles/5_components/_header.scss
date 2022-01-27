@@ -771,4 +771,63 @@ body {
     .header__numbers::after {
         right: -250px;
     }
+    .header__logo {
+        img {
+            width: 80%;
+            height: 70%;
+        }
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .main__navigation .navigation-subtitle {
+        font-size: 10px;
+        text-align: center;
+    }
+    .main__header {
+        line-height: 26px;
+    }
+    .main__form .form-header .header-caption {
+        font-size: 14px;
+        line-height: 18px;
+        width: 70%;
+    }
+    .main__form .form-header .header-content {
+        display: flex;
+        justify-content: space-around;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .header .review-block__title {
+        font-size: 10px;
+    }
+    .header__title {
+        font-size: 30px;
+    }
+    .header__subtitle {
+        font-size: 14px;
+    }
+    .main__navigation .navigation-title {
+        font-size: 10px;
+    }
+    .main__form .form-header .header-caption {
+        font-size: 12px;
+    }
+    .main__form .form-progress .form-progress-caption {
+        font-size: 10px;
+    }
+    .main__form .form-content .form-layout .container .agreement-label {
+        font-size: 8px;
+        line-height: 10px;
+    }
+    .main__form .form-content .form-layout .container .agreement-label a {
+        font-size: 8px;
+    }
+    .main__form .form-content .form-layout__block {
+        margin-bottom: 20px;
+    }
+    .main__form .form-content .form-layout__row {
+        margin-bottom: 15px;
+    }
 }
