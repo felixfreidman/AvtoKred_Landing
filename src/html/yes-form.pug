@@ -54,24 +54,64 @@ html(lang="en")
                             br
                             | Гарантируем: ваши данные останутся в безопасности.
                 .swiper.form-swiper#formSwiper 
-                    .swiper-wrapper 
+                    .swiper-wrapper  
                         .swiper-slide.form-slide
                             .form-content
                                 .form-progress
                                     .form-progress__row
+                                        .form-counting
+                                            | Шаг  
+                                            span.step-counter  2 
+                                            |   из  
+                                            span.step-length  3 
                                         .form-progress-caption
                                             | Получите 
-                                            span.caption-bold +10%
+                                            span.caption-bold +45%
+                                            |  к одобрению, заполнив второй шаг
+                                    .form-progress__bar.completed.completed--50
+                                .form-layout 
+                                    .form-layout__row
+                                        .slider#sliderDebt 
+                                        input#sliderDebtInput(type="text", name="sliderDebtInput", value="400.000").slider-input
+
+        
+                        .swiper-slide.form-slide
+                            .form-content
+                                .form-progress
+                                    .form-progress__row
+                                        .form-counting
+                                            | Шаг  
+                                            span.step-counter  3
+                                            |   из  
+                                            span.step-length  3
+                                        .form-progress-caption
+                                            | Получите 
+                                            span.caption-bold +20%
                                             |  к одобрению, заполнив первый шаг
-                                    .form-progress__bar.completed.completed--0
-                                .form-layout.form-layout--first 
-                                    .form-layout__header Вы уже определились с автомобилем?
+                                    .form-progress__bar.completed.completed--95
+                                .form-layout 
+                                    .form-layout__row
+                                        input#userName(type="text", name="userName", placeholder = "Фамилия, имя и отчество") 
                                     .form-layout__row
                                         .form-layout__block
-                                            a(href="./yes-form.html").block-btn.btn-yes Да
-                                        .form-layout__block 
-                                            a(href="./no-form.html").block-btn.btn-no Нет 
+                                            input#userPhone(type="tel", name="userPhone", placeholder = "Номер телефона", data-inputmask="'mask': '+7(999) 999-99-99'") 
+                                        .form-layout__block
+                                            input#userMail(type="email", name="userMail", placeholder = "Электронная почта") 
+                                    .form-layout__row 
+                                        label(for="agreementLabel").container 
+                                            .agreement-label 
+                                                | Я соглашаюсь с 
+                                                a(href="https://avtokred.com/privacy", target="_blank").agreement-label__link условиями 
+                                                |  и даю свое согласие на обработку и использование персональных данных, и разрешаю сделать запрос в бюро кредитных историй
+                                            input#agreementLabel(type="checkbox", name="agreementLabel", checked).form-checkbox
+                                            span.checkmark
+                                    .form-layout__submit Продолжить        
                     
+                    
+                    .swiper-navigation
+                        .swiper-pagination-btn.swiper-pagination-btn--prev
+                        .swiper-pagination-btn.swiper-pagination-btn--next 
+                    .swiper-pagination
             .main__aware
                 | Действуют для заемщиков, заключивших Договор выдачи Кредита наличными и подписавших Индивидуальные условия выдачи Кредита наличными, предоставленные на основании Заявления на получение Кредита наличными с 1 июня 2014 года.
                 | Ставка от 6,5% до 20,99% годовых определяется для каждого заёмщика индивидуально. При подтверждении целевого использования средств (покупки автомобиля) ставка снижается на 1% процент и может составлять от 5,5% до 19,99%. Ставка действительна на весь срок кредитования. Предложение действует до 20.12.2021. Неустойка за просрочку платежа — 0,1% за каждый день просрочки. Лимит — от 50 000 до 7,5 млн ₽. Срок — от 1 года до 5 лет. Банк оставляет за собой исключительное право на изменение срока действия предложения и на предоставление или отказ в предоставлении кредита. АО «Альфа-Банк». Ген. лицензия ЦБ РФ № 1326 от 16.01.2015.
@@ -87,7 +127,8 @@ html(lang="en")
                     | Создано
                     a(href="https://github.com/felixfreidman", target="_blank").footer-privacy Феликсом Фрейдманом
             
-        script(src="./assets/js/jquery.min.js")  
+        script(src="./assets/js/jquery.min.js") 
+        script(src="//code.jquery.com/ui/1.12.1/jquery-ui.js")  
         script(src="./assets/js/plugins.min.js")
         script(src="./assets/js/main.min.js") 
         
