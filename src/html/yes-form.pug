@@ -12,18 +12,15 @@ html(lang="en")
             .main__header Онлайн-заявка на автокредит
             .main__navigation 
                 .navigation-block 
-                    .navigation-stage 1
-                    .navigation-title Заполните заявку
-                    .navigation-subtitle За 5 минут полностью онлайн
+                    .navigation-stage#banksStage
+                    .navigation-subtitle Все банки специализируются на автокредитовании
                 .navigation-block 
-                    .navigation-stage 2  
-                    .navigation-title 1 час
-                    .navigation-subtitle Дождитесь одобрения
+                    .navigation-stage#checkStage  
+                    .navigation-subtitle Кредит на новое авто или авто с пробегом
                 .navigation-block 
-                    .navigation-stage#lastStage 3   
-                    .navigation-title Получите деньги
-                    .navigation-subtitle В отделении или доставкой
-            form.main__form#form
+                    .navigation-stage#lastStage  
+                    .navigation-subtitle Без каско, первоначального взноса, справок и скрытых платежей
+            form.main__form(method="POST", action="ThankYou.html")#formApply
                 .form-header 
                     .header-content 
                         img(src="./assets/images/content/shieldForm.svg", alt="")
@@ -74,8 +71,8 @@ html(lang="en")
                                             span.step-length  3
                                         .form-progress-caption
                                             | Получите 
-                                            span.caption-bold +20%
-                                            |  к одобрению, заполнив первый шаг
+                                            span.caption-bold +5%
+                                            |  к одобрению, заполнив последний шаг
                                     .form-progress__bar.completed.completed--95
                                 .form-layout 
                                     .form-layout__row
@@ -98,7 +95,7 @@ html(lang="en")
                                                 |  и даю свое согласие на обработку и использование персональных данных, и разрешаю сделать запрос в бюро кредитных историй
                                             input#agreementLabel(type="checkbox", name="agreementLabel", checked, required).form-checkbox
                                             span.checkmark
-                                    button(type="submit").form-layout__submit Продолжить        
+                                    button#applyformSubmit(type="submit").form-layout__submit Продолжить        
                     
                     
                     .swiper-navigation

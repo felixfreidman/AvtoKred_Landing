@@ -290,16 +290,41 @@ $(document).ready(function () {
   $("#userName").keyup(function () {
     if ($(this).val().length != 0 && $("#userPhone").val().length != 0) {
       $(".form-layout__submit").removeClass("button--disabled");
-      console.log("yes");
     }
   });
   $("#userPhone").keyup(function () {
     if ($(this).val().length != 0 && $("#userName").val().length != 0) {
       $(".form-layout__submit").removeClass("button--disabled");
-      console.log("yes");
     }
   });
-}); // JQUERY TOUCH PATCH
+}); // $(document).ready(function() {
+//     $("#formApply").submit(function() {
+//         if (!hasNumber($("#userName").val())) {
+//             $("#userName").addClass("input-warning");
+//             $(".form-layout__submit").addClass("button--disabled");
+//             console.log("Added");
+//         }
+//     });
+// });
+
+var buttonSubmit = document.getElementById("applyformSubmit");
+buttonSubmit.addEventListener("click", function (event) {
+  if (hasNumber(document.getElementById("userName").value)) {
+    document.getElementById("userName").classList.add("input-warning");
+    buttonSubmit.classList.add("button--disabled");
+    event.preventDefault();
+  } else {
+    window.location.href = "http://localhost:3000/ThankYou.html";
+  }
+});
+document.getElementById("formApply").addEventListener("submit", function (event) {
+  buttonSubmit.removeEventListener("click");
+  window.location.href = "http://localhost:3000/ThankYou.html";
+});
+
+function hasNumber(myString) {
+  return /\d/.test(myString);
+} // JQUERY TOUCH PATCH
 
 /*!
  * jQuery UI Touch Punch 0.2.3
@@ -311,6 +336,7 @@ $(document).ready(function () {
  *  jquery.ui.widget.js
  *  jquery.ui.mouse.js
  */
+
 
 (function ($) {
   // Detect touch support

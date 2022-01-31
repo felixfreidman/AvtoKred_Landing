@@ -12,18 +12,15 @@ html(lang="en")
             .main__header Онлайн-заявка на автокредит
             .main__navigation 
                 .navigation-block 
-                    .navigation-stage 1
-                    .navigation-title Заполните заявку
-                    .navigation-subtitle За 5 минут полностью онлайн
+                    .navigation-stage#banksStage
+                    .navigation-subtitle Все банки специализируются на автокредитовании
                 .navigation-block 
-                    .navigation-stage 2  
-                    .navigation-title 1 час
-                    .navigation-subtitle Дождитесь одобрения
+                    .navigation-stage#checkStage  
+                    .navigation-subtitle Кредит на новое авто или авто с пробегом
                 .navigation-block 
-                    .navigation-stage#lastStage 3   
-                    .navigation-title Получите деньги
-                    .navigation-subtitle В отделении или доставкой
-            form.main__form#form
+                    .navigation-stage#lastStage  
+                    .navigation-subtitle Без каско, первоначального взноса, справок и скрытых платежей
+            form.main__form(method="POST", action="ThankYou.html")#formApply
                 .form-header 
                     .header-content 
                         img(src="./assets/images/content/shieldForm.svg", alt="")
@@ -41,12 +38,37 @@ html(lang="en")
                                             | Шаг  
                                             span.step-counter  2 
                                             |   из  
+                                            span.step-length  5
+                                        .form-progress-caption
+                                            | Получите 
+                                            span.caption-bold +40%
+                                            |  к одобрению, заполнив второй шаг
+                                    .form-progress__bar.completed.completed--10
+                                .form-layout 
+                                    .form-layout__row.form-layout__row--updated
+                                        .layout-header Примерная стоимость авто
+                                        .layout-container
+                                            .slider#sliderDebtUncertain 
+                                            input#sliderDebtUncertainInput(type="text", name="sliderDebtInput", value="400.000 ₽").slider-input
+                                        .layout-header Срок займа
+                                        .layout-container 
+                                            .slider#sliderYearUncertain 
+                                            input#sliderYearInput(type="text", name="sliderDebtInput", value="3 года").slider-input
+                        
+                        .swiper-slide.form-slide
+                            .form-content
+                                .form-progress
+                                    .form-progress__row
+                                        .form-counting
+                                            | Шаг  
+                                            span.step-counter  3 
+                                            |   из  
                                             span.step-length  5 
                                         .form-progress-caption
                                             | Получите 
                                             span.caption-bold +20%
-                                            |  к одобрению, заполнив второй шаг
-                                    .form-progress__bar.completed.completed--30
+                                            |  к одобрению, заполнив третий шаг
+                                    .form-progress__bar.completed.completed--50
                                 .form-layout.form-layout--first 
                                     .form-layout__header Для каких целей вам нужен автомобиль?
                                     .form-layout__row.form-layout__row--wrap
@@ -81,14 +103,14 @@ html(lang="en")
                                     .form-progress__row
                                         .form-counting
                                             | Шаг  
-                                            span.step-counter  3 
+                                            span.step-counter  4 
                                             |   из  
                                             span.step-length  5 
                                         .form-progress-caption
                                             | Получите 
-                                            span.caption-bold +30%
-                                            |  к одобрению, заполнив третий шаг
-                                    .form-progress__bar.completed.completed--50
+                                            span.caption-bold +25%
+                                            |  к одобрению, заполнив четвертый шаг
+                                    .form-progress__bar.completed.completed--70
                                 .form-layout.form-layout--first 
                                     .form-layout__header Какой кузов вы хотите у автомобиля?
                                     .form-layout__row.form-layout__row--wrap
@@ -122,54 +144,37 @@ html(lang="en")
                                     .form-progress__row
                                         .form-counting
                                             | Шаг  
-                                            span.step-counter  4 
+                                            span.step-counter  5
                                             |   из  
                                             span.step-length  5
                                         .form-progress-caption
                                             | Получите 
-                                            span.caption-bold +45%
-                                            |  к одобрению, заполнив второй шаг
-                                    .form-progress__bar.completed.completed--50
-                                .form-layout 
-                                    .form-layout__row.form-layout__row--vertical
-                                        .layout-header Стоимость авто
-                                        .layout-container
-                                            .slider#sliderDebtUncertain 
-                                            input#sliderDebtUncertainInput(type="text", name="sliderDebtInput", value="400.000 ₽").slider-input
-                                        .layout-header Срок займа
-                                        .layout-container 
-                                            .slider#sliderYearUncertain 
-                                            input#sliderYearInput(type="text", name="sliderDebtInput", value="3 года").slider-input
-                        .swiper-slide.form-slide
-                            .form-content
-                                .form-progress
-                                    .form-progress__row
-                                        .form-counting
-                                            | Шаг  
-                                            span.step-counter  4 
-                                            |   из  
-                                            span.step-length  5 
-                                        .form-progress-caption
-                                            | Получите 
-                                            span.caption-bold +15%
-                                            |  к одобрению, заполнив первый шаг
-                                    .form-progress__bar.completed.completed--80
+                                            span.caption-bold +5%
+                                            |  к одобрению, заполнив последний шаг
+                                    .form-progress__bar.completed.completed--95
                                 .form-layout 
                                     .form-layout__row
-                                        input#userName(type="text", name="userName", placeholder = "Фамилия, имя и отчество") 
+                                        input#userName(type="text", name="userName", placeholder = "Фамилия, имя и отчество", equired) 
                                     .form-layout__row
                                         .form-layout__block
-                                            input#userPhone(type="tel", name="userPhone", placeholder = "Номер телефона", data-inputmask="'mask': '+7(999) 999-99-99'") 
+                                            input#userPhone(type="tel", name="userPhone", placeholder = "Номер телефона", data-inputmask="'mask': '+7(999) 999-99-99'", required) 
                                         .form-layout__block
                                             input#userMail(type="email", name="userMail", placeholder = "Электронная почта") 
-                                    .form-layout__row 
+                                    .form-layout__row.form-layout__row--vertical
+                                        label(for="citizenLabel").container 
+                                            .agreement-label 
+                                                | Я являюсь гражданином РФ
+                                            input#citizenLabel(type="checkbox", name="agreementLabel", required, checked).form-checkbox
+                                            span.checkmark 
                                         label(for="agreementLabel").container 
                                             .agreement-label 
                                                 | Я соглашаюсь с 
                                                 a(href="https://avtokred.com/privacy", target="_blank").agreement-label__link условиями 
                                                 |  и даю свое согласие на обработку и использование персональных данных, и разрешаю сделать запрос в бюро кредитных историй
-                                            input#agreementLabel(type="checkbox", name="agreementLabel", checked).form-checkbox
-                                            span.checkmark       
+                                            input#agreementLabel(type="checkbox", name="agreementLabel", checked, required).form-checkbox
+                                            span.checkmark
+                                    button#applyformSubmit(type="submit").form-layout__submit Продолжить        
+                         
                     .swiper-navigation
                         .swiper-pagination-btn.swiper-pagination-btn--prev
                         .swiper-pagination-btn.swiper-pagination-btn--next 
