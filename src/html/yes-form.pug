@@ -7,29 +7,7 @@ html(lang="en")
         link(rel="stylesheet", href="style.min.css")
         link(rel="shortcut icon", href="./assets/images/content/favicon.png", type="image/x-icon")
         title Кредит на покупку автомобиля, оформить и взять кредит на авто онлайн — «Автокред»
-    body 
-        header.header 
-            .header__logo 
-                img(src="./assets/images/content/logoRed.svg", alt="")
-            .header__container    
-                .header__title Кредит на автомобиль
-                .header__subtitle Без первоначального взноса
-
-            .header__numbers 
-            .header__review
-                .header__review-container
-                    .review-block 
-                        .review-block__title За 1 час
-                        .review-block__subtitle решение по кредиту
-                    .review-block 
-                        .review-block__title До 7 500 000 ₽
-                        .review-block__subtitle сумма кредита
-                    .review-block 
-                        .review-block__title От полугода до 8 лет
-                        .review-block__subtitle срок кредитования
-                a(href="#form").header__button--apply Заполнить заявку
-
-
+    body
         main.main
             .main__header Онлайн-заявка на автокредит
             .main__navigation 
@@ -39,7 +17,7 @@ html(lang="en")
                     .navigation-subtitle За 5 минут полностью онлайн
                 .navigation-block 
                     .navigation-stage 2  
-                    .navigation-title 2 минуты
+                    .navigation-title 1 час
                     .navigation-subtitle Дождитесь одобрения
                 .navigation-block 
                     .navigation-stage#lastStage 3   
@@ -70,9 +48,19 @@ html(lang="en")
                                             |  к одобрению, заполнив второй шаг
                                     .form-progress__bar.completed.completed--50
                                 .form-layout 
-                                    .form-layout__row
-                                        .slider#sliderDebt 
-                                        input#sliderDebtInput(type="text", name="sliderDebtInput", value="400.000").slider-input
+                                    .form-layout__row.form-layout__row--vertical
+                                        .layout-header Стоимость авто
+                                        .layout-container
+                                            .slider#sliderDebt 
+                                            input#sliderDebtInput(type="text", name="sliderDebtInput", value="400.000 ₽").slider-input
+                                        .layout-header Срок займа
+                                        .layout-container 
+                                            .slider#sliderYear 
+                                            input#sliderYearInput(type="text", name="sliderDebtInput", value="3 года").slider-input
+                                        .layout-header Первоначальный взнос
+                                        .layout-container 
+                                            .slider#sliderInvest 
+                                            input#sliderInvestInput(type="text", name="sliderDebtInput", value="0 ₽").slider-input
 
         
                         .swiper-slide.form-slide
@@ -91,21 +79,26 @@ html(lang="en")
                                     .form-progress__bar.completed.completed--95
                                 .form-layout 
                                     .form-layout__row
-                                        input#userName(type="text", name="userName", placeholder = "Фамилия, имя и отчество") 
+                                        input#userName(type="text", name="userName", placeholder = "Фамилия, имя и отчество", equired) 
                                     .form-layout__row
                                         .form-layout__block
-                                            input#userPhone(type="tel", name="userPhone", placeholder = "Номер телефона", data-inputmask="'mask': '+7(999) 999-99-99'") 
+                                            input#userPhone(type="tel", name="userPhone", placeholder = "Номер телефона", data-inputmask="'mask': '+7(999) 999-99-99'", required) 
                                         .form-layout__block
                                             input#userMail(type="email", name="userMail", placeholder = "Электронная почта") 
-                                    .form-layout__row 
+                                    .form-layout__row.form-layout__row--vertical
+                                        label(for="citizenLabel").container 
+                                            .agreement-label 
+                                                | Я являюсь гражданином РФ
+                                            input#citizenLabel(type="checkbox", name="agreementLabel", required).form-checkbox
+                                            span.checkmark 
                                         label(for="agreementLabel").container 
                                             .agreement-label 
                                                 | Я соглашаюсь с 
                                                 a(href="https://avtokred.com/privacy", target="_blank").agreement-label__link условиями 
                                                 |  и даю свое согласие на обработку и использование персональных данных, и разрешаю сделать запрос в бюро кредитных историй
-                                            input#agreementLabel(type="checkbox", name="agreementLabel", checked).form-checkbox
+                                            input#agreementLabel(type="checkbox", name="agreementLabel", checked, required).form-checkbox
                                             span.checkmark
-                                    .form-layout__submit Продолжить        
+                                    button(type="submit").form-layout__submit Продолжить        
                     
                     
                     .swiper-navigation

@@ -8,28 +8,6 @@ html(lang="en")
         link(rel="shortcut icon", href="./assets/images/content/favicon.png", type="image/x-icon")
         title Кредит на покупку автомобиля, оформить и взять кредит на авто онлайн — «Автокред»
     body 
-        header.header 
-            .header__logo 
-                img(src="./assets/images/content/logoRed.svg", alt="")
-            .header__container    
-                .header__title Кредит на автомобиль
-                .header__subtitle Без первоначального взноса
-
-            .header__numbers 
-            .header__review
-                .header__review-container
-                    .review-block 
-                        .review-block__title За 1 час
-                        .review-block__subtitle решение по кредиту
-                    .review-block 
-                        .review-block__title До 7 500 000 ₽
-                        .review-block__subtitle сумма кредита
-                    .review-block 
-                        .review-block__title От полугода до 8 лет
-                        .review-block__subtitle срок кредитования
-                a(href="#form").header__button--apply Заполнить заявку
-
-
         main.main
             .main__header Онлайн-заявка на автокредит
             .main__navigation 
@@ -39,7 +17,7 @@ html(lang="en")
                     .navigation-subtitle За 5 минут полностью онлайн
                 .navigation-block 
                     .navigation-stage 2  
-                    .navigation-title 2 минуты
+                    .navigation-title 1 час
                     .navigation-subtitle Дождитесь одобрения
                 .navigation-block 
                     .navigation-stage#lastStage 3   
@@ -61,51 +39,42 @@ html(lang="en")
                                     .form-progress__row
                                         .form-counting
                                             | Шаг  
-                                            span.step-counter  1 
-                                            |   из  
-                                            span.step-length  5 
-                                        .form-progress-caption
-                                            | Получите 
-                                            span.caption-bold +10%
-                                            |  к одобрению, заполнив первый шаг
-                                    .form-progress__bar.completed.completed--0
-                                .form-layout.form-layout--first 
-                                    .form-layout__row
-                                        .form-layout__block
-                                            a(href="./yes-form.html").block-btn.btn-yes Да
-                                        .form-layout__block 
-                                            a(href="./no-form.html").block-btn.btn-no Нет 
-                                    
-                        .swiper-slide.form-slide
-                            .form-content
-                                .form-progress
-                                    .form-progress__row
-                                        .form-counting
-                                            | Шаг  
                                             span.step-counter  2 
                                             |   из  
                                             span.step-length  5 
                                         .form-progress-caption
                                             | Получите 
-                                            span.caption-bold +40%
+                                            span.caption-bold +20%
                                             |  к одобрению, заполнив второй шаг
-                                    .form-progress__bar.completed.completed--10
-                                .form-layout 
-                                    .form-layout__row
-                                        input#userName(type="text", name="userName", placeholder = "Фамилия, имя и отчество") 
-                                    .form-layout__row
-                                        .form-layout__block
-                                            input#userPhone(type="tel", name="userPhone", placeholder = "Номер телефона", data-inputmask="'mask': '+7(999) 999-99-99'") 
-                                        .form-layout__block
-                                            input#userMail(type="email", name="userMail", placeholder = "Электронная почта") 
-                                    .form-layout__row 
-                                        label(for="agreementLabel").container 
-                                            .agreement-label 
-                                                | Я соглашаюсь с 
-                                                a(href="https://avtokred.com/privacy", target="_blank").agreement-label__link условиями 
-                                                |  и даю свое согласие на обработку и использование персональных данных, и разрешаю сделать запрос в бюро кредитных историй
-                                            input#agreementLabel(type="checkbox", name="agreementLabel", checked).form-checkbox
-                                            span.checkmark
+                                    .form-progress__bar.completed.completed--30
+                                .form-layout.form-layout--first 
+                                    .form-layout__header Для каких целей вам нужен автомобиль?
+                                    .form-layout__row.form-layout__row--wrap
+                                        input#travelTarget(type="radio", name="debtTarget",checked)
+                                        label(for="travelTarget").complex-label 
+                                            .complex-label__checkmark  
+                                            .complex-label__title Путешествия
+                                        input#trave2Target(type="radio", name="debtTarget")
+                                        label(for="trave2Target").complex-label 
+                                            .complex-label__checkmark 
+                                            .complex-label__title Путешествия
+                                        input#travel3Target(type="radio", name="debtTarget")
+                                        label(for="travel3Target").complex-label 
+                                            .complex-label__checkmark  
+                                            .complex-label__title Путешествия
+                                        input#travel4Target(type="radio", name="debtTarget")
+                                        label(for="travel4Target").complex-label 
+                                            .complex-label__checkmark  
+                                            .complex-label__title Путешествия
+                                        input#travel5Target(type="radio", name="debtTarget")
+                                        label(for="travel5Target").complex-label 
+                                            .complex-label__checkmark  
+                                            .complex-label__title Путешествия
+                                        input#otherTarget(type="radio", name="debtTarget")
+                                        label(for="otherTarget").complex-label 
+                                            .complex-label__checkmark  
+                                            .complex-label__title Другое
+                                    
                         .swiper-slide.form-slide
                             .form-content
                                 .form-progress
@@ -118,24 +87,59 @@ html(lang="en")
                                         .form-progress-caption
                                             | Получите 
                                             span.caption-bold +30%
-                                            |  к одобрению, заполнив первый шаг
+                                            |  к одобрению, заполнив третий шаг
+                                    .form-progress__bar.completed.completed--50
+                                .form-layout.form-layout--first 
+                                    .form-layout__header Какой кузов вы хотите у автомобиля?
+                                    .form-layout__row.form-layout__row--wrap
+                                        input#auto1Type(type="radio", name="autoType",checked)
+                                        label(for="auto1Type").complex-label 
+                                            .complex-label__checkmark  
+                                            .complex-label__title Седан
+                                        input#auto2Type(type="radio", name="autoType")
+                                        label(for="auto2Type").complex-label 
+                                            .complex-label__checkmark 
+                                            .complex-label__title Джип
+                                        input#auto3Type(type="radio", name="autoType")
+                                        label(for="auto3Type").complex-label 
+                                            .complex-label__checkmark  
+                                            .complex-label__title Мотоцикл
+                                        input#auto4Type(type="radio", name="autoType")
+                                        label(for="auto4Type").complex-label 
+                                            .complex-label__checkmark  
+                                            .complex-label__title Грузовик
+                                        input#auto5Type(type="radio", name="autoType")
+                                        label(for="auto5Type").complex-label 
+                                            .complex-label__checkmark  
+                                            .complex-label__title Спецтехника
+                                        input#autoTypeOther(type="radio", name="autoType")
+                                        label(for="autoTypeOther").complex-label 
+                                            .complex-label__checkmark  
+                                            .complex-label__title Другое
+                        .swiper-slide.form-slide
+                            .form-content
+                                .form-progress
+                                    .form-progress__row
+                                        .form-counting
+                                            | Шаг  
+                                            span.step-counter  4 
+                                            |   из  
+                                            span.step-length  5
+                                        .form-progress-caption
+                                            | Получите 
+                                            span.caption-bold +45%
+                                            |  к одобрению, заполнив второй шаг
                                     .form-progress__bar.completed.completed--50
                                 .form-layout 
-                                    .form-layout__row
-                                        input#userName(type="text", name="userName", placeholder = "Фамилия, имя и отчество") 
-                                    .form-layout__row
-                                        .form-layout__block
-                                            input#userPhone(type="tel", name="userPhone", placeholder = "Номер телефона", data-inputmask="'mask': '+7(999) 999-99-99'") 
-                                        .form-layout__block
-                                            input#userMail(type="email", name="userMail", placeholder = "Электронная почта") 
-                                    .form-layout__row 
-                                        label(for="agreementLabel").container 
-                                            .agreement-label 
-                                                | Я соглашаюсь с 
-                                                a(href="https://avtokred.com/privacy", target="_blank").agreement-label__link условиями 
-                                                |  и даю свое согласие на обработку и использование персональных данных, и разрешаю сделать запрос в бюро кредитных историй
-                                            input#agreementLabel(type="checkbox", name="agreementLabel", checked).form-checkbox
-                                            span.checkmark
+                                    .form-layout__row.form-layout__row--vertical
+                                        .layout-header Стоимость авто
+                                        .layout-container
+                                            .slider#sliderDebtUncertain 
+                                            input#sliderDebtUncertainInput(type="text", name="sliderDebtInput", value="400.000 ₽").slider-input
+                                        .layout-header Срок займа
+                                        .layout-container 
+                                            .slider#sliderYearUncertain 
+                                            input#sliderYearInput(type="text", name="sliderDebtInput", value="3 года").slider-input
                         .swiper-slide.form-slide
                             .form-content
                                 .form-progress
@@ -165,38 +169,7 @@ html(lang="en")
                                                 a(href="https://avtokred.com/privacy", target="_blank").agreement-label__link условиями 
                                                 |  и даю свое согласие на обработку и использование персональных данных, и разрешаю сделать запрос в бюро кредитных историй
                                             input#agreementLabel(type="checkbox", name="agreementLabel", checked).form-checkbox
-                                            span.checkmark
-                        .swiper-slide.form-slide
-                            .form-content
-                                .form-progress
-                                    .form-progress__row
-                                        .form-counting
-                                            | Шаг  
-                                            span.step-counter  4 
-                                            |   из  
-                                            span.step-length  5 
-                                        .form-progress-caption
-                                            | Получите 
-                                            span.caption-bold +20%
-                                            |  к одобрению, заполнив первый шаг
-                                    .form-progress__bar.completed.completed--95
-                                .form-layout 
-                                    .form-layout__row
-                                        input#userName(type="text", name="userName", placeholder = "Фамилия, имя и отчество") 
-                                    .form-layout__row
-                                        .form-layout__block
-                                            input#userPhone(type="tel", name="userPhone", placeholder = "Номер телефона", data-inputmask="'mask': '+7(999) 999-99-99'") 
-                                        .form-layout__block
-                                            input#userMail(type="email", name="userMail", placeholder = "Электронная почта") 
-                                    .form-layout__row 
-                                        label(for="agreementLabel").container 
-                                            .agreement-label 
-                                                | Я соглашаюсь с 
-                                                a(href="https://avtokred.com/privacy", target="_blank").agreement-label__link условиями 
-                                                |  и даю свое согласие на обработку и использование персональных данных, и разрешаю сделать запрос в бюро кредитных историй
-                                            input#agreementLabel(type="checkbox", name="agreementLabel", checked).form-checkbox
-                                            span.checkmark
-                                    .form-layout__submit Продолжить        
+                                            span.checkmark       
                     .swiper-navigation
                         .swiper-pagination-btn.swiper-pagination-btn--prev
                         .swiper-pagination-btn.swiper-pagination-btn--next 
@@ -216,7 +189,8 @@ html(lang="en")
                     | Создано
                     a(href="https://github.com/felixfreidman", target="_blank").footer-privacy Феликсом Фрейдманом
             
-        script(src="./assets/js/jquery.min.js")  
+        script(src="./assets/js/jquery.min.js")
+        script(src="//code.jquery.com/ui/1.12.1/jquery-ui.js")  
         script(src="./assets/js/plugins.min.js")
         script(src="./assets/js/main.min.js") 
         

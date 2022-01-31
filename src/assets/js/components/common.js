@@ -43,7 +43,7 @@ $(document).ready(function() {
         slide: function(event, ui) {
             let debtValue = ui.value;
             debtValue = numberWithCommas(debtValue);
-            $("#sliderDebtInput").val(debtValue);
+            $("#sliderDebtInput").val(debtValue + " ₽");
         },
         // slide: function(event, ui) {
         //     let debtMoney = $("#sliderDebt").slider("value");
@@ -81,6 +81,60 @@ $(document).ready(function() {
         //     $("#interestResult").text(Math.floor(monthPayment) + " ₽");
         // },
     });
+    $("#sliderYear").slider({
+        range: "min",
+        animate: true,
+        value: 3,
+        min: 0,
+        max: 8,
+        slide: function(event, ui) {
+            let debtValue = ui.value;
+            debtValue = numberWithCommas(debtValue);
+            $("#sliderYearInput").val(debtValue);
+            updateDatesOfInput();
+        },
+    });
+    $("#sliderInvest").slider({
+        range: "min",
+        animate: true,
+        value: 0,
+        min: 0,
+        max: $("#sliderDebt").slider("option", "value") * 0.8,
+        slide: function(event, ui) {
+            let debtValue = ui.value;
+            debtValue = numberWithCommas(debtValue);
+            $("#sliderInvestInput").val(debtValue + " ₽");
+            let debtValueMax = $("#sliderDebt").slider("option", "value") * 0.8;
+            console.log(debtValueMax);
+            $("#sliderInvest").slider("option", "max", debtValueMax);
+        },
+    });
+    $("#sliderDebtUncertain").slider({
+        range: "min",
+        animate: true,
+        value: 400000,
+        min: 100000,
+        max: 8000000,
+        slide: function(event, ui) {
+            let debtValue = ui.value;
+            debtValue = numberWithCommas(debtValue);
+            $("#sliderDebtUncertainInput").val(debtValue + " ₽");
+        },
+    });
+    $("#sliderYearUncertain").slider({
+        range: "min",
+        animate: true,
+        value: 3,
+        min: 0,
+        max: 8,
+        slide: function(event, ui) {
+            let debtValue = ui.value;
+            debtValue = numberWithCommas(debtValue);
+            $("#sliderYearInput").val(debtValue);
+            updateDatesOfInput();
+        },
+    });
+
     // $("#sliderDeposit").slider({
     //     range: "min",
     //     animate: true,
@@ -197,6 +251,54 @@ $(document).ready(function() {
     // });
 });
 
+function updateDatesOfInput() {
+    let yearInput = document.getElementById("sliderYearInput");
+    let updatedYear = yearInput.value;
+    updatedYear = updatedYear.replace(" года", "");
+    switch (updatedYear) {
+        case "0":
+            yearInput.value = "6 месяцев";
+            break;
+
+        case "1":
+            yearInput.value = "1 год";
+            break;
+
+        case "2":
+            yearInput.value = "2 года";
+            break;
+
+        case "3":
+            yearInput.value = "3 года";
+            break;
+
+        case "4":
+            yearInput.value = "4 года";
+            break;
+
+        default:
+            yearInput.value = `${yearInput.value} лет`;
+            break;
+    }
+}
+const userNameInput = document.getElementById("userName");
+const userPhoneInput = document.getElementById("userPhone");
+$(document).ready(function() {
+    $(".form-layout__submit").addClass("button--disabled");
+    $("#userName").keyup(function() {
+        if ($(this).val().length != 0 && $("#userPhone").val().length != 0) {
+            $(".form-layout__submit").removeClass("button--disabled");
+
+            console.log("yes");
+        }
+    });
+    $("#userPhone").keyup(function() {
+        if ($(this).val().length != 0 && $("#userName").val().length != 0) {
+            $(".form-layout__submit").removeClass("button--disabled");
+            console.log("yes");
+        }
+    });
+});
 // JQUERY TOUCH PATCH
 /*!
  * jQuery UI Touch Punch 0.2.3

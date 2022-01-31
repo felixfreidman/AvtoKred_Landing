@@ -194,11 +194,9 @@ body {
         width: 60%;
         box-shadow: 0 6px 14px rgba($color: #0b1f35, $alpha: .15);
         background-color: #fff;
-        height: 75vh;
         margin-top: 50px;
         border-radius: 22px;
-        max-height: 675px;
-        min-height: 675px;
+        height: 800px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -343,7 +341,7 @@ body {
             }
         }
         .form-content {
-            height: calc(70% - 40px);
+            height: calc(100% - 40px);
             width: calc(100% - 140px);
             padding: 0px 70px 20px;
             background-color: #fff;
@@ -354,6 +352,7 @@ body {
                 justify-content: start;
                 width: 100%;
                 height: 100%;
+                margin-top: 50px;
                 &--first {
                     .form-layout__row {
                         height: 80%;
@@ -397,12 +396,34 @@ body {
                     align-items: center;
                     justify-content: space-between;
                     margin-bottom: 40px;
+                    &--vertical {
+                        flex-direction: column;
+                        align-items: flex-start;
+                        height: 100%;
+                        .layout-container {
+                            display: flex;
+                            align-items: center;
+                            width: 100%;
+                            justify-content: space-between;
+                            margin-bottom: 20px;
+                            .slider {
+                                // position: static;
+                            }
+                        }
+                        .layout-header {
+                            font-size: 18px;
+                            font-weight: 500;
+                            color: #0b1f35;
+                        }
+                    }
                     .slider {
                         width: 45%;
                         background-color: rgba($color: #B20A2C, $alpha: .5);
                         border: none;
                         border-radius: 8px;
                         height: 40px;
+                        cursor: pointer;
+                        z-index: 10000;
                         .ui-slider-handle {
                             height: 80%;
                             top: 0;
@@ -522,15 +543,21 @@ body {
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    height: 80px;
+                    min-height: 80px;
+                    max-height: 80px;
                     border-radius: 8px;
+                    border: none;
+                }
+                .button--disabled {
+                    filter: grayscale(1);
+                    pointer-events: none;
                 }
             }
         }
         .form-swiper {
             display: flex;
             align-items: center;
-            justify-content: center;
+            // justify-content: center;
             flex-direction: column;
             position: relative;
             height: 80%;
@@ -667,6 +694,46 @@ body {
     .footer-developer {
         a {
             margin-left: 5px;
+        }
+    }
+}
+
+.form-layout__row--wrap {
+    flex-wrap: wrap !important;
+    input {
+        display: none;
+    }
+    input:checked+.complex-label {
+        border: 3px solid #B20A2C;
+        color: #B20A2C;
+        .complex-label__checkmark {
+            border: 2px solid #B20A2C;
+            background-color: #B20A2C;
+        }
+    }
+    .complex-label {
+        width: 45%;
+        height: 80px;
+        font-size: 22px;
+        font-weight: 500;
+        color: #0b1f35;
+        border: 3px solid #0b1f35;
+        display: flex;
+        align-items: center;
+        border-radius: 8px;
+        justify-content: space-between;
+        background-color: #fff;
+        cursor: pointer;
+        &__checkmark {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #0b1f35;
+            background-color: #fff;
+            border-radius: 50%;
+            margin-left: 20px;
+        }
+        &__title {
+            margin-right: 20px;
         }
     }
 }
