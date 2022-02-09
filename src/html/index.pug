@@ -42,33 +42,33 @@ html(lang="en")
                 .navigation-block 
                     .navigation-stage#lastStage  
                     .navigation-subtitle Без каско, первоначального взноса, справок и скрытых платежей
-            form.main__form#form
-                .form-header 
-                    .header-content 
-                        img(src="./assets/images/content/shieldForm.svg", alt="")
-                        .header-caption 
-                            | Заполнение анкеты не обязывает вас брать автокредит
-                            br
-                            | Гарантируем: ваши данные останутся в безопасности.
-                .swiper.form-swiper#formSwiper 
-                    .swiper-wrapper 
-                        .swiper-slide.form-slide
-                            .form-content
-                                .form-progress
-                                    .form-progress__row
-                                        .form-progress-caption
-                                            | Получите 
-                                            span.caption-bold +10%
-                                            |  к одобрению, заполнив первый шаг
-                                    .form-progress__bar.completed.completed--0
-                                .form-layout.form-layout--first 
-                                    .form-layout__header Вы уже определились с автомобилем?
-                                    .form-layout__row
-                                        .form-layout__block
-                                            a(href="./yes-form.html").block-btn.btn-yes Да
-                                        .form-layout__block 
-                                            a(href="./no-form.html").block-btn.btn-no Нет 
-                    
+            .main__container#form
+                .init-slide.slide-container#initSlide 
+                    .slide-container__slide
+                        .slide-content 
+                            .slide-container__header Вы уже определились с автомобилем?
+                            .slide-container__button-group 
+                                .button.button--yes#yesFormTrans Да
+                                .button.button--no#noFormTrans Нет
+                            .slide-container__control-panel 
+                                .status-bar.status-bar--0
+                                .control__nav-buttons 
+                                    .nav-button.nav-button--back
+                                    .nav-button.nav-button--forward Дальше
+                        .slide-advice  
+                        
+                form.yes-form-slide.slide-container.js-hidden--Animated#yesForm
+                    .slide-container__slide
+                        .slide-container__header Расскажите больше о том, какой вы хотите кредит
+                    .slide-container__slide
+                        .slide-container__header Оставить заявку
+                form.no-forn-slide.slide-container.js-hidden--Animated#noform
+                    .slide-container__slide 
+                        .slide-container__header Расскажите нам о том, какое транспортное средство вы хоите
+                    .slide-container__slide
+                        .slide-container__header Расскажите больше о том, какой вы хотите кредит
+                    .slide-container__slide
+                        .slide-container__header Оставить заявку
             .main__aware
                 | Действуют для заемщиков, заключивших Договор выдачи Кредита наличными и подписавших Индивидуальные условия выдачи Кредита наличными, предоставленные на основании Заявления на получение Кредита наличными с 1 июня 2014 года.
                 | Ставка от 6,5% до 20,99% годовых определяется для каждого заёмщика индивидуально. При подтверждении целевого использования средств (покупки автомобиля) ставка снижается на 1% процент и может составлять от 5,5% до 19,99%. Ставка действительна на весь срок кредитования. Предложение действует до 20.12.2021. Неустойка за просрочку платежа — 0,1% за каждый день просрочки. Лимит — от 50 000 до 7,5 млн ₽. Срок — от 1 года до 5 лет. Банк оставляет за собой исключительное право на изменение срока действия предложения и на предоставление или отказ в предоставлении кредита. АО «Альфа-Банк». Ген. лицензия ЦБ РФ № 1326 от 16.01.2015.

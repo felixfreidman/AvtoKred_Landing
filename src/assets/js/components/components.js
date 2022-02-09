@@ -1,27 +1,16 @@
-// // header-swiper
-// var swiper = new Swiper('#main-swiper', {
-//   fadeEffect: {
-//     crossFade: true
-//   },
-//   navigation: {
-//     nextEl: '.swiper-button-next--header',
-//     prevEl: '.swiper-button-prev--header',
-//   },
-//   pagination: {
-//     el: '.swiper-pagination',
-//     type: 'bullets',
-//     clickable: true,
-//   },
-//   loop: true,
-//   // autoplay: {
-//   //   delay: 2300,
-//   // },
-//   fadeEffect: {
-//     crossFade: true
-//   },
-//   speed: 800,
-//   watchSlidesProgress: true,
-//   watchVisibility: true,
-//   disableOnInteraction: true,
-// });
+// Form Logic
+let initContainer = document.getElementById("initSlide");
+let yesForm = document.getElementById("yesForm");
+let noForm = document.getElementById("noform");
+let toYesForm = document.getElementById("yesFormTrans");
+let toNoForm = document.getElementById("noFormTrans");
 
+toYesForm.addEventListener("click", () => {
+    yesForm.classList.toggle("js-hidden--Animated");
+    initContainer.classList.toggle("js-hidden--Animated");
+});
+
+toNoForm.addEventListener("click", () => {
+    noForm.classList.toggle("js-hidden--Animated");
+    initContainer.classList.toggle("js-hidden--Animated");
+});
