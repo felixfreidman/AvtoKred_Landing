@@ -7,7 +7,7 @@
 
 .slide-container {
     animation: fromZeroToFull 0.5s ease;
-    height: 350px;
+    height: fit-content;
     display: flex;
     width: 100%;
     align-items: center;
@@ -16,7 +16,7 @@
         width: calc(100% - 40px);
         height: calc(100% - 40px);
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         justify-content: space-between;
         background-color: #B20A2C;
         border-radius: 22px;
@@ -46,6 +46,64 @@
         padding: 20px;
         background-color: #fff;
         border-radius: 22px;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        .approve-label {
+            background-color: rgba($color: #009933, $alpha: 0.5);
+            color: #fff;
+            font-weight: 500;
+            font-size: 25px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+            border-radius: 16px;
+            span {
+                display: block;
+                margin-left: 10px;
+                font-weight: 800;
+            }
+        }
+        .person-container {
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+            margin-top: 20px;
+            .person-info {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .person-image {
+                border-radius: 50%;
+                border: 3px solid #B20A2C;
+                width: 80px;
+                height: 80px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                img {
+                    width: 95%;
+                    height: 95%;
+                    object-fit: contain;
+                }
+            }
+            .person-name {
+                margin-right: auto;
+                margin-left: auto;
+                font-weight: 600;
+                font-size: 25px;
+                color: #B20A2C;
+            }
+            .person-message {
+                margin-top: 20px;
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 20px;
+            }
+        }
     }
     &__button-group {
         display: flex;
@@ -53,6 +111,8 @@
         height: fit-content;
         align-items: center;
         justify-content: space-between;
+        margin-top: 80px;
+        margin-bottom: 80px;
         .button {
             font-weight: 500;
             font-size: 20px;
