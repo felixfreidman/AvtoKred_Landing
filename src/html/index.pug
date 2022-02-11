@@ -43,7 +43,7 @@ html(lang="en")
                     .navigation-stage#lastStage  
                     .navigation-subtitle Без каско, первоначального взноса, справок и скрытых платежей
             .main__container#form
-                .init-slide.slide-container.js-hidden--Animated#initSlide 
+                .init-slide.slide-container#initSlide 
                     .slide-container__slide
                         .slide-content 
                             .slide-container__header Вы уже определились с автомобилем?
@@ -57,8 +57,8 @@ html(lang="en")
                                 //-     .nav-button.nav-button--forward Дальше
                         .slide-advice  
                         
-                form.yes-form-slide.slide-container#yesForm
-                    .slide-container__slide.js-hidden--Animated#creditSlide
+                form.yes-form-slide.slide-container.js-hidden--Animated#yesForm
+                    .slide-container__slide#creditSlide
                         .slide-content 
                             .slide-container__header Расскажите больше о том, какой вы хотите кредит
                             .slide-container__content-group 
@@ -88,7 +88,7 @@ html(lang="en")
                                     .nav-button.nav-button--back#toInitSlide
                                     .nav-button.nav-button--forward#toSendSlide Дальше
                         .slide-advice  
-                    .slide-container__slide#sendSlide
+                    .slide-container__slide.js-hidden--Animated#sendSlide
                         .slide-content     
                             .slide-container__header Оставить заявку
                             .slide-container__input-group 
