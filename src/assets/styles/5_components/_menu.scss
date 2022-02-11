@@ -617,3 +617,168 @@
     color: #B20A2C;
     font-weight: 600;
 }
+
+@media (max-width: 1200px) {
+    .slide-container .slide-advice .person-container .person-name {
+        font-size: 18px;
+    }
+    .slide-container__control-panel .status-bar {
+        width: 50%;
+    }
+    .slide-container__control-panel .control__nav-buttons {
+        width: 45%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .main {
+        width: calc(100vw - 60px) !important;
+        padding: 100px 30px !important;
+    }
+}
+
+@media (max-width: 950px) {
+    .slide-container__header {
+        font-size: 22px;
+    }
+    .slide-container .slide-advice .person-container .person-message {
+        font-size: 13px;
+    }
+    .slide-container .slide-advice .person-container .person-image {
+        width: 40px;
+        height: 40px;
+    }
+    .slide-container .slide-advice .approve-label {
+        font-size: 18px;
+    }
+    .slide-container__complex-group .radio-group label .name {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 900px) {
+    .slide-container__content-group {
+        flex-direction: column;
+        align-items: start;
+    }
+    .slide-container__content-group .content-group__slider {
+        width: 100%;
+    }
+}
+
+@media (max-width: 800px) {
+    .slide-container__control-panel {
+        flex-direction: column;
+        align-items: start;
+    }
+    .slide-container__control-panel .status-bar {
+        width: 100%;
+        margin-bottom: 50px;
+    }
+    .slide-container__control-panel .control__nav-buttons {
+        width: 100%;
+    }
+    .slide-container__complex-group {
+        flex-direction: column;
+        align-items: start;
+    }
+    .slide-container__complex-group .display-group,
+    .slide-container__complex-group .radio-group {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    .slide-container .slide-advice .approve-label {
+        font-size: 14px;
+    }
+    .slide-container .slide-advice .person-container .person-name {
+        font-size: 14px;
+    }
+    .slide-container__complex-group .radio-group label .name {
+        font-size: 22px;
+    }
+    .container .agreement-label {
+        font-size: 13px !important;
+    }
+    .slide-container__button-group {
+        width: 80%;
+    }
+}
+
+@media (max-width: 700px) {
+    .slide-container__slide {
+        flex-direction: column;
+        align-items: start;
+    }
+    .slide-container .slide-content {
+        width: calc(100% - 40px);
+        margin-bottom: 40px;
+    }
+    .slide-container .slide-advice {
+        width: calc(100% - 40px);
+    }
+    .slide-container .slide-advice .approve-label,
+    .slide-container .slide-advice .person-container .person-name {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 500px) {
+    .slide-container__button-group {
+        width: 100%;
+    }
+    .slide-container__complex-group .display-group {
+        height: 200px;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+    .slide-container__content-group .content-group__picker {
+        flex-direction: column;
+        align-items: start;
+    }
+    .slide-container__content-group .content-group__picker .picker-display {
+        width: 100%;
+        margin-top: 30px;
+    }
+    .slide-container__content-group .content-group__picker input {
+        width: calc(100% - 20px);
+        margin-top: 30px;
+    }
+    .container .agreement-label {
+        font-size: 12px !important;
+        line-height: 15px !important;
+    }
+}
+
+@media (max-width: 400px) {
+    .slide-container__input-group .form-submit {
+        width: 100%;
+        min-height: 50px;
+        max-height: 50px;
+    }
+    .slide-container__complex-group .radio-group label .name {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 350px) {
+    .container .agreement-label {
+        font-size: 10px !important;
+        line-height: 13px !important;
+    }
+    .container .agreement-label a {
+        font-size: 12px !important;
+    }
+    .slide-container .slide-advice .approve-label,
+    .slide-container .slide-advice .person-container .person-name {
+        font-size: 15px;
+    }
+    .slide-container__header {
+        font-size: 15px;
+    }
+    .slide-container__complex-group .radio-group label .name {
+        font-size: 12px;
+    }
+}
