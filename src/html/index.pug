@@ -43,7 +43,7 @@ html(lang="en")
                     .navigation-stage#lastStage  
                     .navigation-subtitle Без каско, первоначального взноса, справок и скрытых платежей
             .main__container#form
-                .init-slide.slide-container#initSlide 
+                .init-slide.slide-container.js-hidden--Animated#initSlide 
                     .slide-container__slide
                         .slide-content 
                             .slide-container__header Вы уже определились с автомобилем?
@@ -51,24 +51,106 @@ html(lang="en")
                                 .button.button--yes#yesFormTrans Да
                                 .button.button--no#noFormTrans Нет
                             .slide-container__control-panel 
-                                .status-bar.status-bar--0
+                                .status-bar.status-bar--10
+                                //- .control__nav-buttons 
+                                //-     .nav-button.nav-button--back
+                                //-     .nav-button.nav-button--forward Дальше
+                        .slide-advice  
+                        
+                form.yes-form-slide.slide-container#yesForm
+                    .slide-container__slide.js-hidden--Animated#creditSlide
+                        .slide-content 
+                            .slide-container__header Расскажите больше о том, какой вы хотите кредит
+                            .slide-container__content-group 
+                                .content-group__slider 
+                                    input#sliderCreditInput(type="text", name="sliderCreditInput", value="Сумма кредита: 500.000 ₽") 
+                                    .slider#sliderCredit
+                                .content-group__slider 
+                                    input#sliderInvestInput(type="text", name="sliderInvestInput", value="Первоначальный взнос: 0 ₽")
+                                    .slider#sliderInvest
+                                .content-group__picker 
+                                    .picker-display 
+                                        span#pickerTime 3 года
+                                        .picker-display__options.js-hidden--Animated 
+                                            .option 6 месяцев
+                                            .option 1 год
+                                            .option 2 года
+                                            .option.checked 3 года
+                                            .option 4 года
+                                            .option 5 лет
+                                            .option 6 лет
+                                            .option 7 лет
+                                            .option 8 лет
+                                    input#timePicker(type="text", name="timePicker",value="Срок кредитования: 3 года")
+                            .slide-container__control-panel 
+                                .status-bar.status-bar--50
+                                .control__nav-buttons 
+                                    .nav-button.nav-button--back#toInitSlide
+                                    .nav-button.nav-button--forward#toSendSlide Дальше
+                        .slide-advice  
+                    .slide-container__slide#sendSlide
+                        .slide-content     
+                            .slide-container__header Оставить заявку
+                            .slide-container__input-group 
+                                input#user(type="text", name="user", placeholder = "Фамилия, имя и отчество", equired) 
+                                input#phone(type="tel", name="phone", placeholder = "Номер телефона", data-inputmask="'mask': '+7(999) 999-99-99'", required)
+                                label(for="citizenLabel").container 
+                                    .agreement-label 
+                                        | Я являюсь гражданином РФ
+                                    input#citizenLabel(type="checkbox", name="agreementLabel", required).form-checkbox
+                                    span.checkmark 
+                                label(for="agreementLabel").container 
+                                    .agreement-label 
+                                        | Я соглашаюсь с 
+                                        a(href="https://avtokred.com/privacy", target="_blank").agreement-label__link условиями 
+                                        |  и даю свое согласие на обработку и использование персональных данных, и разрешаю сделать запрос в бюро кредитных историй
+                                    input#agreementLabel(type="checkbox", name="agreementLabel", checked, required).form-checkbox
+                                    span.checkmark
+                                button#applyformSubmit(type="submit").form-submit Продолжить  
+                            .slide-container__control-panel 
+                                .status-bar.status-bar--95
+                                .control__nav-buttons 
+                                    .nav-button.nav-button--back#toCreditSlide
+                        .slide-advice  
+                form.no-forn-slide.slide-container.js-hidden--Animated#noform
+                    .slide-container__slide
+                        .slide-content 
+                            .slide-container__header Расскажите нам о том, какое транспортное средство вы хоите
+                            .slide-container__button-group 
+                                .button.button--yes#yesFormTrans Да
+                                .button.button--no#noFormTrans Нет
+                            .slide-container__control-panel 
+                                .status-bar.status-bar--30
+                                .control__nav-buttons 
+                                    .nav-button.nav-button--back
+                                    .nav-button.nav-button--forward Дальше
+                        .slide-advice  
+                    .slide-container__slide.js-hidden--Animated
+                        .slide-content 
+                            .slide-container__header Расскажите больше о том, какой вы хотите кредит
+                            .slide-container__button-group 
+                                .button.button--yes#yesFormTrans Да
+                                .button.button--no#noFormTrans Нет
+                            .slide-container__control-panel 
+                                .status-bar.status-bar--60
                                 .control__nav-buttons 
                                     .nav-button.nav-button--back
                                     .nav-button.nav-button--forward Дальше
                         .slide-advice  
                         
-                form.yes-form-slide.slide-container.js-hidden--Animated#yesForm
-                    .slide-container__slide
-                        .slide-container__header Расскажите больше о том, какой вы хотите кредит
-                    .slide-container__slide
-                        .slide-container__header Оставить заявку
-                form.no-forn-slide.slide-container.js-hidden--Animated#noform
-                    .slide-container__slide 
-                        .slide-container__header Расскажите нам о том, какое транспортное средство вы хоите
-                    .slide-container__slide
-                        .slide-container__header Расскажите больше о том, какой вы хотите кредит
-                    .slide-container__slide
-                        .slide-container__header Оставить заявку
+                    .slide-container__slide.js-hidden--Animated 
+                        .slide-content 
+                            .slide-container__header Оставить заявку
+                            .slide-container__button-group 
+                                .button.button--yes#yesFormTrans Да
+                                .button.button--no#noFormTrans Нет
+                            .slide-container__control-panel 
+                                .status-bar.status-bar--95
+                                .control__nav-buttons 
+                                    .nav-button.nav-button--back
+                                    .nav-button.nav-button--forward Дальше
+                        .slide-advice  
+                        
             .main__aware
                 | Действуют для заемщиков, заключивших Договор выдачи Кредита наличными и подписавших Индивидуальные условия выдачи Кредита наличными, предоставленные на основании Заявления на получение Кредита наличными с 1 июня 2014 года.
                 | Ставка от 6,5% до 20,99% годовых определяется для каждого заёмщика индивидуально. При подтверждении целевого использования средств (покупки автомобиля) ставка снижается на 1% процент и может составлять от 5,5% до 19,99%. Ставка действительна на весь срок кредитования. Предложение действует до 20.12.2021. Неустойка за просрочку платежа — 0,1% за каждый день просрочки. Лимит — от 50 000 до 7,5 млн ₽. Срок — от 1 года до 5 лет. Банк оставляет за собой исключительное право на изменение срока действия предложения и на предоставление или отказ в предоставлении кредита. АО «Альфа-Банк». Ген. лицензия ЦБ РФ № 1326 от 16.01.2015.
@@ -85,6 +167,7 @@ html(lang="en")
                     a(href="https://github.com/felixfreidman", target="_blank").footer-privacy Феликсом Фрейдманом
             
         script(src="./assets/js/jquery.min.js")  
+        script(src="//code.jquery.com/ui/1.12.1/jquery-ui.js") 
         script(src="./assets/js/plugins.min.js")
         script(src="./assets/js/main.min.js") 
         
