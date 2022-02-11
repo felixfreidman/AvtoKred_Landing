@@ -474,6 +474,14 @@ var sendSlide = document.getElementById("sendSlide");
 var toInitSlide = document.getElementById("toInitSlide");
 var toSendSlide = document.getElementById("toSendSlide");
 var toCreditSlide = document.getElementById("toCreditSlide");
+var toInitSlideFromNo = document.getElementById("toInitSlideFromNo");
+var toCreditSlideFromNo = document.getElementById("toCreditSlideFromNo");
+var typeSlide = document.getElementById("typeSlide");
+var uncertainCreditSlide = document.getElementById("uncertainCreditSlide");
+var toTypeSlide = document.getElementById("toTypeSlide");
+var toUncertainSendSlide = document.getElementById("toUncertainSendSlide");
+var uncertainSendSlide = document.getElementById("uncertainSendSlide");
+var toUncertainCreditSlide = document.getElementById("toUncertainCreditSlide");
 toYesForm.addEventListener("click", function () {
   yesForm.classList.toggle("js-hidden--Animated");
   initContainer.classList.toggle("js-hidden--Animated");
@@ -494,7 +502,28 @@ toCreditSlide.addEventListener("click", function () {
   sendSlide.classList.toggle("js-hidden--Animated");
   creditSlide.classList.toggle("js-hidden--Animated");
 });
-$("#phone").inputmask(); // Credit Logic
+toInitSlideFromNo.addEventListener("click", function () {
+  initContainer.classList.toggle("js-hidden--Animated");
+  noForm.classList.toggle("js-hidden--Animated");
+});
+toCreditSlideFromNo.addEventListener("click", function () {
+  typeSlide.classList.toggle("js-hidden--Animated");
+  uncertainCreditSlide.classList.toggle("js-hidden--Animated");
+});
+toTypeSlide.addEventListener("click", function () {
+  typeSlide.classList.toggle("js-hidden--Animated");
+  uncertainCreditSlide.classList.toggle("js-hidden--Animated");
+});
+toUncertainSendSlide.addEventListener("click", function () {
+  uncertainSendSlide.classList.toggle("js-hidden--Animated");
+  uncertainCreditSlide.classList.toggle("js-hidden--Animated");
+});
+toUncertainCreditSlide.addEventListener("click", function () {
+  uncertainSendSlide.classList.toggle("js-hidden--Animated");
+  uncertainCreditSlide.classList.toggle("js-hidden--Animated");
+});
+$("#phone").inputmask();
+$("#phoneUncertain").inputmask(); // Slide Logic
 
 function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -651,6 +680,164 @@ timeInput.addEventListener("focusout", function () {
       case "8":
         timeInput.value = "\u0421\u0440\u043E\u043A \u043A\u0440\u0435\u0434\u0438\u0442\u043E\u0432\u0430\u043D\u0438\u044F: ".concat(updatedTimeInput, " \u043B\u0435\u0442");
         document.getElementById("pickerTime").textContent = "".concat(updatedTimeInput, " \u043B\u0435\u0442");
+        autoCheckOptions(updatedTimeInput);
+        break;
+    }
+  }
+});
+var radioLabels = document.querySelectorAll(".radio-label");
+radioLabels.forEach(function (label) {
+  label.addEventListener("click", function () {
+    var labelValue = label.getAttribute("for");
+    labelValue = labelValue.replace("Type", "");
+    var imageToShow = document.getElementById(labelValue);
+    hideAllImages();
+    imageToShow.classList.toggle("js-hidden--Animated");
+  });
+});
+var imagesToShow = document.querySelectorAll(".radio-image");
+
+function hideAllImages() {
+  imagesToShow.forEach(function (image) {
+    if (!image.classList.contains("js-hidden--Animated")) {
+      image.classList.add("js-hidden--Animated");
+    }
+  });
+}
+
+$(document).ready(function () {
+  $("#sliderCreditUncertain").slider({
+    range: "min",
+    animate: true,
+    value: 500000,
+    min: 100000,
+    max: 8000000,
+    step: 10000,
+    slide: function slide(event, ui) {
+      var debtValue = ui.value;
+      debtValue = numberWithCommas(debtValue);
+      $("#sliderCreditInputUncertain").val("Желаемая cумма кредита: " + debtValue + " ₽");
+    }
+  });
+  $("#sliderInvestUncertain").slider({
+    range: "min",
+    animate: true,
+    value: 0,
+    min: 0,
+    max: 6400000,
+    step: 10000,
+    slide: function slide(event, ui) {
+      var debtValue = ui.value;
+      debtValue = numberWithCommas(debtValue);
+      $("#sliderInvestInputUncertain").val("Первоначальный взнос: " + debtValue + " ₽");
+    }
+  });
+});
+var creditInputUncertain = document.getElementById("sliderCreditInputUncertain");
+var valueCreditInputUncertain = creditInput.value;
+creditInputUncertain.addEventListener("focusin", function () {
+  creditInputUncertain.value = "";
+});
+creditInputUncertain.addEventListener("focusout", function () {
+  if (!creditInputUncertain.value) {
+    creditInputUncertain.value = valueCreditInputUncertain;
+  } else {
+    $("#sliderCreditUncertain").slider("option", "value", creditInputUncertain.value);
+    var updatedCreditInput = numberWithCommas(creditInputUncertain.value);
+    creditInputUncertain.value = "\u0416\u0435\u043B\u0430\u0435\u043C\u0430\u044F \u0441\u0443\u043C\u043C\u0430 \u043A\u0440\u0435\u0434\u0438\u0442\u0430: ".concat(updatedCreditInput, " \u20BD");
+  }
+});
+var investInputUncertain = document.getElementById("sliderInvestInputUncertain");
+var valueInvestInputUncertain = investInput.value;
+investInputUncertain.addEventListener("focusin", function () {
+  investInputUncertain.value = "";
+});
+investInputUncertain.addEventListener("focusout", function () {
+  if (!investInputUncertain.value) {
+    investInputUncertain.value = valueInvestInputUncertain;
+  } else {
+    $("#sliderInvestUncertain").slider("option", "value", investInputUncertain.value);
+    var updatedInvestInput = numberWithCommas(investInputUncertain.value);
+    investInputUncertain.value = "\u041F\u0435\u0440\u0432\u043E\u043D\u0430\u0447\u0430\u043B\u044C\u043D\u044B\u0439 \u0432\u0437\u043D\u043E\u0441: ".concat(updatedInvestInput, " \u20BD");
+  }
+});
+var pickerTogglerUncertain = document.querySelector(".display--uncertain");
+var pickerOptionsUncertain = document.querySelector(".display__options--uncertain");
+pickerTogglerUncertain.addEventListener("click", function () {
+  pickerOptionsUncertain.classList.toggle("js-hidden--Animated");
+});
+document.addEventListener("mouseup", function (e) {
+  if (!pickerTogglerUncertain.contains(e.target)) {
+    pickerOptionsUncertain.classList.add("js-hidden--Animated");
+  }
+});
+var optionsUncertain = document.querySelectorAll(".option--uncertain");
+optionsUncertain.forEach(function (option) {
+  option.addEventListener("click", function () {
+    uncheckOptions();
+    option.classList.add("checked");
+    document.getElementById("pickerTimeUncertain").textContent = option.textContent;
+    document.getElementById("timePickerUncertain").value = "\u0421\u0440\u043E\u043A \u043A\u0440\u0435\u0434\u0438\u0442\u043E\u0432\u0430\u043D\u0438\u044F: ".concat(option.textContent);
+  });
+});
+var timeInputUncertain = document.getElementById("timePickerUncertain");
+var valueTimeInputUncertain = timeInput.value;
+timeInputUncertain.addEventListener("focusin", function () {
+  timeInputUncertain.value = "";
+});
+timeInputUncertain.addEventListener("focusout", function () {
+  if (!timeInputUncertain.value) {
+    timeInputUncertain.value = valueTimeInputUncertain;
+  } else {
+    $("#sliderInvestUncertain").slider("option", "value", timeInputUncertain.value);
+    var updatedTimeInput = numberWithCommas(timeInputUncertain.value);
+
+    switch (updatedTimeInput) {
+      case "1":
+        timeInputUncertain.value = "\u0421\u0440\u043E\u043A \u043A\u0440\u0435\u0434\u0438\u0442\u043E\u0432\u0430\u043D\u0438\u044F: ".concat(updatedTimeInput, " \u0433\u043E\u0434");
+        document.getElementById("pickerTimeUncertain").textContent = "".concat(updatedTimeInput, " \u0433\u043E\u0434");
+        autoCheckOptions(updatedTimeInput);
+        break;
+
+      case "2":
+        timeInputUncertain.value = "\u0421\u0440\u043E\u043A \u043A\u0440\u0435\u0434\u0438\u0442\u043E\u0432\u0430\u043D\u0438\u044F: ".concat(updatedTimeInput, " \u0433\u043E\u0434\u0430");
+        document.getElementById("pickerTimeUncertain").textContent = "".concat(updatedTimeInput, " \u0433\u043E\u0434\u0430");
+        autoCheckOptions(updatedTimeInput);
+        break;
+
+      case "3":
+        timeInputUncertain.value = "\u0421\u0440\u043E\u043A \u043A\u0440\u0435\u0434\u0438\u0442\u043E\u0432\u0430\u043D\u0438\u044F: ".concat(updatedTimeInput, " \u0433\u043E\u0434\u0430");
+        document.getElementById("pickerTimeUncertain").textContent = "".concat(updatedTimeInput, " \u0433\u043E\u0434\u0430");
+        autoCheckOptions(updatedTimeInput);
+        break;
+
+      case "4":
+        timeInputUncertain.value = "\u0421\u0440\u043E\u043A \u043A\u0440\u0435\u0434\u0438\u0442\u043E\u0432\u0430\u043D\u0438\u044F: ".concat(updatedTimeInput, " \u0433\u043E\u0434\u0430");
+        document.getElementById("pickerTimeUncertain").textContent = " ".concat(updatedTimeInput, " \u0433\u043E\u0434\u0430");
+        autoCheckOptions(updatedTimeInput);
+        break;
+
+      case "5":
+        timeInputUncertain.value = "\u0421\u0440\u043E\u043A \u043A\u0440\u0435\u0434\u0438\u0442\u043E\u0432\u0430\u043D\u0438\u044F: ".concat(updatedTimeInput, " \u043B\u0435\u0442");
+        document.getElementById("pickerTimeUncertain").textContent = "".concat(updatedTimeInput, " \u043B\u0435\u0442");
+        autoCheckOptions(updatedTimeInput);
+        break;
+
+      case "6":
+        timeInputUncertain.value = "\u0421\u0440\u043E\u043A \u043A\u0440\u0435\u0434\u0438\u0442\u043E\u0432\u0430\u043D\u0438\u044F: ".concat(updatedTimeInput, " \u043B\u0435\u0442");
+        document.getElementById("pickerTimeUncertain").textContent = "".concat(updatedTimeInput, " \u043B\u0435\u0442");
+        autoCheckOptions(updatedTimeInput);
+        break;
+
+      case "7":
+        timeInputUncertain.value = "\u0421\u0440\u043E\u043A \u043A\u0440\u0435\u0434\u0438\u0442\u043E\u0432\u0430\u043D\u0438\u044F: ".concat(updatedTimeInput, " \u043B\u0435\u0442");
+        document.getElementById("pickerTimeUncertain").textContent = "".concat(updatedTimeInput, " \u043B\u0435\u0442");
+        autoCheckOptions(updatedTimeInput);
+        break;
+
+      case "8":
+        timeInputUncertain.value = "\u0421\u0440\u043E\u043A \u043A\u0440\u0435\u0434\u0438\u0442\u043E\u0432\u0430\u043D\u0438\u044F: ".concat(updatedTimeInput, " \u043B\u0435\u0442");
+        document.getElementById("pickerTimeUncertain").textContent = "".concat(updatedTimeInput, " \u043B\u0435\u0442");
         autoCheckOptions(updatedTimeInput);
         break;
     }

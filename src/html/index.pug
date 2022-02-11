@@ -43,7 +43,7 @@ html(lang="en")
                     .navigation-stage#lastStage  
                     .navigation-subtitle Без каско, первоначального взноса, справок и скрытых платежей
             .main__container#form
-                .init-slide.slide-container#initSlide 
+                .init-slide.slide-container.js-hidden--Animated#initSlide 
                     .slide-container__slide
                         .slide-content 
                             .slide-container__header Вы уже определились с автомобилем?
@@ -52,9 +52,6 @@ html(lang="en")
                                 .button.button--no#noFormTrans Нет
                             .slide-container__control-panel 
                                 .status-bar.status-bar--10
-                                //- .control__nav-buttons 
-                                //-     .nav-button.nav-button--back
-                                //-     .nav-button.nav-button--forward Дальше
                         .slide-advice  
                         
                 form.yes-form-slide.slide-container.js-hidden--Animated#yesForm
@@ -112,44 +109,102 @@ html(lang="en")
                                 .control__nav-buttons 
                                     .nav-button.nav-button--back#toCreditSlide
                         .slide-advice  
-                form.no-forn-slide.slide-container.js-hidden--Animated#noform
-                    .slide-container__slide
+                form.no-form-slide.slide-container#noform
+                    .slide-container__slide#typeSlide
                         .slide-content 
-                            .slide-container__header Расскажите нам о том, какое транспортное средство вы хоите
-                            .slide-container__button-group 
-                                .button.button--yes#yesFormTrans Да
-                                .button.button--no#noFormTrans Нет
+                            .slide-container__header(style="width: 90%") Расскажите нам о том, какое транспортное средство вы хотите
+                            .slide-container__complex-group 
+                                .radio-group
+                                    input#motoType(type="radio", name="transportType")
+                                    label(for="motoType").radio-label  
+                                        .checkmark 
+                                        .name Мотоцикл
+                                    input#carType(type="radio", name="transportType", checked)
+                                    label(for="carType").radio-label 
+                                        .checkmark 
+                                        .name Автомобиль
+                                
+                                    input#truckType(type="radio", name="transportType")
+                                    label(for="truckType").radio-label 
+                                        .checkmark 
+                                        .name Грузовик
+
+                                    input#specType(type="radio", name="transportType")
+                                    label(for="specType").radio-label 
+                                        .checkmark 
+                                        .name Спецтехника
+                                    input#otherType(type="radio", name="transportType")
+                                    label(for="otherType").radio-label  
+                                        .checkmark 
+                                        .name Другое
+                                        
+                                .display-group
+                                    img(src="./assets/images/content/vk.svg", alt="")#moto.js-hidden--Animated.radio-image  
+                                    img(src="./assets/images/content/car.png", alt="")#car.radio-image 
+                                    img(src="./assets/images/content/banner2.png", alt="")#truck.js-hidden--Animated.radio-image  
+                                    img(src="./assets/images/content/interestRed.png", alt="")#spec.js-hidden--Animated.radio-image  
+                                    img(src="./assets/images/content/favicon.png", alt="")#other.js-hidden--Animated.radio-image  
                             .slide-container__control-panel 
                                 .status-bar.status-bar--30
                                 .control__nav-buttons 
-                                    .nav-button.nav-button--back
-                                    .nav-button.nav-button--forward Дальше
+                                    .nav-button.nav-button--back#toInitSlideFromNo
+                                    .nav-button.nav-button--forward#toCreditSlideFromNo Дальше
                         .slide-advice  
-                    .slide-container__slide.js-hidden--Animated
+                    .slide-container__slide.js-hidden--Animated#uncertainCreditSlide
                         .slide-content 
                             .slide-container__header Расскажите больше о том, какой вы хотите кредит
-                            .slide-container__button-group 
-                                .button.button--yes#yesFormTrans Да
-                                .button.button--no#noFormTrans Нет
+                            .slide-container__content-group 
+                                .content-group__slider 
+                                    input#sliderCreditInputUncertain(type="text", name="sliderCreditInputUncertain", value="Желаемая cумма кредита: 500.000 ₽") 
+                                    .slider#sliderCreditUncertain
+                                .content-group__slider 
+                                    input#sliderInvestInputUncertain(type="text", name="sliderInvestInputUncertain", value="Первоначальный взнос: 0 ₽")
+                                    .slider#sliderInvestUncertain
+                                .content-group__picker 
+                                    .picker-display.display--uncertain 
+                                        span#pickerTimeUncertain 3 года
+                                        .picker-display__options.display__options--uncertain.js-hidden--Animated 
+                                            .option.option--uncertain 6 месяцев
+                                            .option.option--uncertain 1 год
+                                            .option.option--uncertain 2 года
+                                            .option.option--uncertain.checked 3 года
+                                            .option.option--uncertain 4 года
+                                            .option.option--uncertain 5 лет
+                                            .option.option--uncertain 6 лет
+                                            .option.option--uncertain 7 лет
+                                            .option.option--uncertain 8 лет
+                                    input#timePickerUncertain(type="text", name="timePicker",value="Срок кредитования: 3 года")
                             .slide-container__control-panel 
-                                .status-bar.status-bar--60
+                                .status-bar.status-bar--50
                                 .control__nav-buttons 
-                                    .nav-button.nav-button--back
-                                    .nav-button.nav-button--forward Дальше
+                                    .nav-button.nav-button--back#toTypeSlide
+                                    .nav-button.nav-button--forward#toUncertainSendSlide Дальше
                         .slide-advice  
-                        
-                    .slide-container__slide.js-hidden--Animated 
-                        .slide-content 
+                    .slide-container__slide.js-hidden--Animated#uncertainSendSlide
+                        .slide-content     
                             .slide-container__header Оставить заявку
-                            .slide-container__button-group 
-                                .button.button--yes#yesFormTrans Да
-                                .button.button--no#noFormTrans Нет
+                            .slide-container__input-group 
+                                input#userUncertain(type="text", name="user", placeholder = "Фамилия, имя и отчество", equired) 
+                                input#phoneUncertain(type="tel", name="phone", placeholder = "Номер телефона", data-inputmask="'mask': '+7(999) 999-99-99'", required)
+                                label(for="citizenLabelUncertain").container 
+                                    .agreement-label 
+                                        | Я являюсь гражданином РФ
+                                    input#citizenLabelUncertain(type="checkbox", name="agreementLabel", required).form-checkbox
+                                    span.checkmark 
+                                label(for="agreementLabelUncertain").container 
+                                    .agreement-label 
+                                        | Я соглашаюсь с 
+                                        a(href="https://avtokred.com/privacy", target="_blank").agreement-label__link условиями 
+                                        |  и даю свое согласие на обработку и использование персональных данных, и разрешаю сделать запрос в бюро кредитных историй
+                                    input#agreementLabelUncertain(type="checkbox", name="agreementLabel", checked, required).form-checkbox
+                                    span.checkmark
+                                button#applyformSubmitUncertain(type="submit").form-submit Продолжить  
                             .slide-container__control-panel 
                                 .status-bar.status-bar--95
                                 .control__nav-buttons 
-                                    .nav-button.nav-button--back
-                                    .nav-button.nav-button--forward Дальше
+                                    .nav-button.nav-button--back#toUncertainCreditSlide
                         .slide-advice  
+                 
                         
             .main__aware
                 | Действуют для заемщиков, заключивших Договор выдачи Кредита наличными и подписавших Индивидуальные условия выдачи Кредита наличными, предоставленные на основании Заявления на получение Кредита наличными с 1 июня 2014 года.
