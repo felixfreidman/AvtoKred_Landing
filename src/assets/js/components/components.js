@@ -22,44 +22,71 @@ toYesForm.addEventListener("click", () => {
     yesForm.classList.toggle("js-hidden--Animated");
     initContainer.classList.toggle("js-hidden--Animated");
 });
-
+$(toYesForm).on("click", function() {
+    $(window).scrollTop($("#yesForm").offset().top);
+});
 toNoForm.addEventListener("click", () => {
     noForm.classList.toggle("js-hidden--Animated");
     initContainer.classList.toggle("js-hidden--Animated");
 });
-
+$(toNoForm).on("click", function() {
+    $(window).scrollTop($("#noform").offset().top);
+});
 toInitSlide.addEventListener("click", () => {
     yesForm.classList.toggle("js-hidden--Animated");
     initContainer.classList.toggle("js-hidden--Animated");
 });
-
+$(toInitSlide).on("click", function() {
+    $(window).scrollTop($("#initSlide").offset().top);
+});
 toSendSlide.addEventListener("click", () => {
     sendSlide.classList.toggle("js-hidden--Animated");
     creditSlide.classList.toggle("js-hidden--Animated");
+});
+$(toSendSlide).on("click", function() {
+    $(window).scrollTop($("#yesForm").offset().top);
 });
 toCreditSlide.addEventListener("click", () => {
     sendSlide.classList.toggle("js-hidden--Animated");
     creditSlide.classList.toggle("js-hidden--Animated");
 });
+$(toCreditSlide).on("click", function() {
+    $(window).scrollTop($("#yesForm").offset().top);
+});
 toInitSlideFromNo.addEventListener("click", () => {
     initContainer.classList.toggle("js-hidden--Animated");
     noForm.classList.toggle("js-hidden--Animated");
+});
+$(toInitSlideFromNo).on("click", function() {
+    $(window).scrollTop($("#initSlide").offset().top);
 });
 toCreditSlideFromNo.addEventListener("click", () => {
     typeSlide.classList.toggle("js-hidden--Animated");
     uncertainCreditSlide.classList.toggle("js-hidden--Animated");
 });
+$(toCreditSlideFromNo).on("click", function() {
+    $(window).scrollTop($("#noform").offset().top);
+});
 toTypeSlide.addEventListener("click", () => {
     typeSlide.classList.toggle("js-hidden--Animated");
     uncertainCreditSlide.classList.toggle("js-hidden--Animated");
+});
+$(toTypeSlide).on("click", function() {
+    $(window).scrollTop($("#noform").offset().top);
 });
 toUncertainSendSlide.addEventListener("click", () => {
     uncertainSendSlide.classList.toggle("js-hidden--Animated");
     uncertainCreditSlide.classList.toggle("js-hidden--Animated");
 });
+$(toUncertainSendSlide).on("click", function() {
+    $(window).scrollTop($("#noform").offset().top);
+});
 toUncertainCreditSlide.addEventListener("click", () => {
     uncertainSendSlide.classList.toggle("js-hidden--Animated");
     uncertainCreditSlide.classList.toggle("js-hidden--Animated");
+});
+$(toUncertainCreditSlide).on("click", function() {
+    $(window).scrollTop($("#noform").offset().top);
 });
 
 $("#phone").inputmask();
